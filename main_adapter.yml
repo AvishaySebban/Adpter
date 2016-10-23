@@ -1,0 +1,21 @@
+---
+  - hosts: local
+    connection: local
+    vars:
+      #ldap.properties
+      host: 172.20.0.231
+      port: 389
+      ldap_admin_group_dn: "CN:Adapter_QA_Admin,OU:Adapters_UI,OU:Main,DC:corp,DC:monster,DC:local"
+      ldap_bind_dn: "CN:adp_ldap_admin,OU:Adapters_UI,OU:Main,DC:corp,DC:monster,DC:local"
+      ldap_user_dn: "cn={0},OU=Adapters_UI,OU=Main,DC=corp,DC=monster,DC=local"
+      ldap_bind_password: "{ENC}kO5O7bpwnwLPNtYxIbUpmyDFLjRJs7hU"
+      #db.properties
+      driver_class: "oracle.jdbc.OracleDriver"
+      jdbc_url: "jdbc:oracle:thin:@//172.20.0.71:1521/ORCL"
+      jdbc_user_name: "LH_ADP_FRESH"
+      jdbc_password: "LH_ADP_FRESH"
+    tasks:
+      - include: tasks/setup-adapter.yml
+
+    #handlers:
+    #  - include: handlers/handlers.yml

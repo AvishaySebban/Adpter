@@ -1,0 +1,6 @@
+---
+  - name: write ldap.properties
+    action: template src=templates/ldap.properties.j2 dest=/tmp/ldap.properties
+
+  - name: write db.properties
+    action: template src=templates/db.properties.j2 dest=/tmp/db.properties
